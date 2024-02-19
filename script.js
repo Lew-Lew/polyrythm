@@ -5,21 +5,28 @@ const rectangle = document.querySelector(".container");
 const playButton = document.getElementById("play-button");
 const speedLabel = document.getElementById("speed");
 const speedRange = document.getElementById("speedRange");
+const heightLabel = document.getElementById("height");
+const heightRange = document.getElementById("heightRange");
 const squareData = [];
 
 const keyLen = squares.length;
 const squareSize = squares[0].offsetWidth;
-const availableWidth = rectangle.offsetWidth - keyLen * squareSize;
-const spacing = availableWidth / (keyLen - 1);
-const minHeight = squareSize * 2;
+// const availableWidth = rectangle.offsetWidth - keyLen * squareSize;
+// const spacing = availableWidth / (keyLen - 1);
+let minHeight = 10;
 let speed = 5;
 speedLabel.innerText = speed;
+heightLabel.innerText = minHeight;
 
 speedRange.addEventListener('input', () => {
   speed = speedRange.value;
   speedLabel.innerText = speed;
 });
 
+heightRange.addEventListener('input', () => {
+  minHeight = heightRange.value;
+  heightLabel.innerText = minHeight;
+});
 
 for (let i = 0; i < keyLen; i++) {
   const y = 0;
